@@ -211,8 +211,14 @@ private func writeSampleVideo(audio: [Float], to url: URL) async throws {
     let renderer = FrameRenderer()
 
     func wait(for input: AVAssetWriterInput) throws {
+        let deadline = Date().addingTimeInterval(30)
         while !input.isReadyForMoreMediaData {
             if writer.status == .failed { throw writer.error ?? Failure(L("视频编码失败。", "Video encoding failed.")) }
+            guard Date() < deadline else {
+                writer.cancelWriting()
+                throw Failure(L("编码器 30 秒没有响应，已停止生成示例视频。",
+                                "The encoder stopped responding for 30 seconds; gave up writing the sample video."))
+            }
             usleep(2_000)
         }
     }

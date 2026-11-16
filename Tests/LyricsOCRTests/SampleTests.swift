@@ -5,7 +5,8 @@ import Testing
 /// End to end on the synthetic sample: render it, read the subtitles back with Vision, compare
 /// with the known text, then align the trimmed, sped-up recording.
 /// Set LYRICS_OCR_SKIP_E2E=1 to skip (for machines where Vision text recognition is unavailable).
-@Test(.disabled(if: ProcessInfo.processInfo.environment["LYRICS_OCR_SKIP_E2E"] == "1"))
+@Test(.disabled(if: ProcessInfo.processInfo.environment["LYRICS_OCR_SKIP_E2E"] == "1"),
+      .timeLimit(.minutes(5)))
 func syntheticSampleRoundTrip() async throws {
     let folder = FileManager.default.temporaryDirectory.appendingPathComponent("lyrics-ocr-sample-\(UUID().uuidString)")
     try prepareOutput(folder)

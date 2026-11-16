@@ -177,7 +177,7 @@ swift build
 scripts/test.sh
 ```
 
-`scripts/test.sh` runs `swift test`, adding the framework paths that Swift Testing needs when only the Command Line Tools are installed. The end-to-end test renders the sample, reads it with Vision and checks the text, timing and alignment; set `LYRICS_OCR_SKIP_E2E=1` to skip it. Messages follow the system language (Chinese or English); set `LYRICS_OCR_LANG=en` or `zh` to choose.
+`scripts/test.sh` runs `swift test`, adding the framework paths that Swift Testing needs when only the Command Line Tools are installed. The end-to-end test renders the sample, reads it with Vision and checks the text, timing and alignment; set `LYRICS_OCR_SKIP_E2E=1` to skip it. GitHub's hosted Macs are virtual machines where video encoding and Vision are unreliable, so CI gates on the unit tests and runs the end-to-end test as an informational job. Messages follow the system language (Chinese or English); set `LYRICS_OCR_LANG=en` or `zh` to choose.
 
 This is a personal tool, shared in case it is useful. Issues and pull requests are welcome, but responses aren't guaranteed.
 

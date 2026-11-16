@@ -7,9 +7,25 @@ on:
 jobs:
   test:
     runs-on: macos-15
+    timeout-minutes: 15
+    env:
+      # Hosted runners are virtual machines; video encoding and Vision text recognition
+      # are not reliable there, so the end-to-end test runs in its own job below.
+      LYRICS_OCR_SKIP_E2E: "1"
     steps:
       - uses: actions/checkout@v4
       - name: Build
         run: swift build
-      - name: Test
+      - name: Unit tests
         run: scripts/test.sh
+
+  end-to-end:
+    # Informational: renders the synthetic sample, reads it with Vision and aligns it.
+    # A failure here does not fail the workflow. Run scripts/test.sh locally for the real check.
+    runs-on: macos-15
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: End-to-end test
+        run: scripts/test.sh --filter syntheticSampleRoundTrip

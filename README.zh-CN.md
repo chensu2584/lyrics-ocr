@@ -177,7 +177,7 @@ swift build
 scripts/test.sh
 ```
 
-`scripts/test.sh` 会运行 `swift test`；只装了 Command Line Tools 时，它会补上 Swift Testing 需要的框架路径。端到端测试会生成样本、用 Vision 识别，并检查文字、时间和对齐结果；设置 `LYRICS_OCR_SKIP_E2E=1` 可以跳过。界面语言跟随系统（中文或英文），用 `LYRICS_OCR_LANG=en` 或 `zh` 可以指定。
+`scripts/test.sh` 会运行 `swift test`；只装了 Command Line Tools 时，它会补上 Swift Testing 需要的框架路径。端到端测试会生成样本、用 Vision 识别，并检查文字、时间和对齐结果；设置 `LYRICS_OCR_SKIP_E2E=1` 可以跳过。GitHub 托管的 Mac 是虚拟机，视频编码和 Vision 在上面不可靠，所以 CI 以单元测试为准，端到端测试单独跑一个仅供参考的任务。界面语言跟随系统（中文或英文），用 `LYRICS_OCR_LANG=en` 或 `zh` 可以指定。
 
 这是个人工具，分享出来供参考。欢迎提 issue 和 PR，但不保证及时回复。
 
