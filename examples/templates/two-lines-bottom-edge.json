@@ -1,0 +1,38 @@
+{
+  "regions": [
+    {
+      "id": "zh",
+      "language": "zh-Hans",
+      "x": 0.0,
+      "y": 0.9009259259,
+      "width": 0.4791666667,
+      "height": 0.037037037,
+      "brightTextThreshold": 145,
+      "ocrBrightnessThreshold": 120
+    },
+    {
+      "id": "ja",
+      "language": "ja-JP",
+      "x": 0.0,
+      "y": 0.937962963,
+      "width": 0.4791666667,
+      "height": 0.0416666667,
+      "brightTextThreshold": 145,
+      "ocrBrightnessThreshold": 120,
+      "ignorePrefixes": [
+        "词:",
+        "词：",
+        "曲:",
+        "曲：",
+        "编曲:",
+        "编曲：",
+        "作词:",
+        "作词：",
+        "作曲:",
+        "作曲：",
+        "翻译:",
+        "翻译："
+      ]
+    }
+  ]
+}

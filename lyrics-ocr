@@ -1,0 +1,13 @@
+#!/bin/bash
+# Builds the release binary when the sources changed, then runs it.
+set -euo pipefail
+
+root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+binary="$root/.build/release/lyrics-ocr"
+
+if [[ ! -x "$binary" || "$root/Package.swift" -nt "$binary" ]] ||
+   [[ -n "$(find "$root/Sources" -name '*.swift' -newer "$binary" -print -quit 2>/dev/null)" ]]; then
+    swift build -c release --package-path "$root" --product lyrics-ocr >&2
+fi
+
+exec "$binary" "$@"

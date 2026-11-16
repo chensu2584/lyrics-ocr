@@ -1,0 +1,24 @@
+{
+  "regions": [
+    {
+      "id": "zh",
+      "language": "zh-Hans",
+      "x": 0.2421875,
+      "y": 0.6638888889,
+      "width": 0.7453125,
+      "height": 0.0685185185,
+      "brightTextThreshold": 205,
+      "ocrBrightnessThreshold": 155
+    },
+    {
+      "id": "ja",
+      "language": "ja-JP",
+      "x": 0.2421875,
+      "y": 0.5972222222,
+      "width": 0.7453125,
+      "height": 0.0657407407,
+      "brightTextThreshold": 205,
+      "ocrBrightnessThreshold": 155
+    }
+  ]
+}

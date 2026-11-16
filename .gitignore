@@ -1,0 +1,16 @@
+.DS_Store
+.build/
+.swiftpm/
+*.xcodeproj/
+
+# Media and extraction results stay local. Subtitled videos, recordings and the translations
+# they carry belong to their authors; never commit them.
+*.mp4
+*.mov
+*.mkv
+*.flac
+*.wav
+*.m4a
+*.mp3
+/demo/
+/output/
