@@ -13,7 +13,7 @@ jobs:
       # are not reliable there, so the end-to-end test runs in its own job below.
       LYRICS_OCR_SKIP_E2E: "1"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build
         run: swift build
       - name: Unit tests
@@ -26,6 +26,6 @@ jobs:
     timeout-minutes: 15
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: End-to-end test
         run: scripts/test.sh --filter syntheticSampleRoundTrip
